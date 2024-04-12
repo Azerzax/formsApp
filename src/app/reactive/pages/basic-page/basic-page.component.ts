@@ -44,6 +44,7 @@ export class BasicPageComponent  implements OnInit{
 
   onSave():void{
     if (this.myForm.invalid){
+      this.myForm.markAllAsTouched //esto hace que al darle al save y haya sido invalido el form salten los errores que no saltan por defecto porque estan esperando a que el form este en touched
       return
     }else{
       console.log(this.myForm.value);
@@ -52,7 +53,6 @@ export class BasicPageComponent  implements OnInit{
     //this.myForm.reset(); formatear el formulario del todo
 
     this.myForm.reset({price:10, inStorage:0})
-
   }
 
 }
