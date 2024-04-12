@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+const rtx6090 = {
+  name: 'RTX 6090',
+  price: 2500,
+  inStorage: 7,
+}
 
 @Component({
   templateUrl: './basic-page.component.html',
   styles: ``
 })
-export class BasicPageComponent {
+export class BasicPageComponent  implements OnInit{
 
   constructor(
     private fb: FormBuilder
   )
   {
 
+  }
+
+  ngOnInit(): void {
+    this.myForm.reset(rtx6090); // Se pueden indicar los campos que se quieren rellenar al hacer el reseteo con un objeto
   }
 
   /*
@@ -38,6 +48,10 @@ export class BasicPageComponent {
     }else{
       console.log(this.myForm.value);
     }
+
+    //this.myForm.reset(); formatear el formulario del todo
+
+    this.myForm.reset({price:10, inStorage:0})
 
   }
 
