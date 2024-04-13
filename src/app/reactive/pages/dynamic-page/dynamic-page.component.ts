@@ -50,6 +50,10 @@ export class DynamicPageComponent {
     formArray.controls[index].touched
   }
 
+  onDeleteFavorites(index: number): void{
+    this.favorites.removeAt(index);
+  }
+
   getFieldError(field: string): string | null{
     if(!this.myForm.controls[field]){
       return null;
