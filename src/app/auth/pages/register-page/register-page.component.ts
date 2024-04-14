@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { cantBeNigga } from '../../../shared/validators/validators';
+import * as customValidators from '../../../shared/validators/validators';
 
 @Component({
   templateUrl: './register-page.component.html',
@@ -12,9 +12,9 @@ export class RegisterPageComponent {
   }
 
   public myForm = this.fb.group({
-    name:['', [Validators.required]],
-    email:['', [Validators.required]],
-    username:['', [Validators.required, cantBeNigga]],
+    name:['', [Validators.required, Validators.pattern(customValidators.firstNameAndLastnamePattern)]],
+    email:['', [Validators.required, Validators.pattern(customValidators.emailPattern)]],
+    username:['', [Validators.required, customValidators.cantBeNigga]],
     password:['', [Validators.required, Validators.minLength(8)]],
     password2:['', [Validators.required]]
   })

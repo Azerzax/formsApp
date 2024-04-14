@@ -101,6 +101,24 @@
 <h2>Form errors</h2>
 <pre>{{ myForm.errors| json }}</pre>
 
+
+<h5>Nombre-errors</h5>
+<pre>{{ myForm.controls['name'].errors | json }}</pre>
+
+<h5>Emai-errors</h5>
+<pre>{{ myForm.controls['email'].errors | json }}</pre>
+
+<h5>Username-errors</h5>
+<pre>{{ myForm.controls['username'].errors | json }}</pre>
+
+
+<h5>Password-errors</h5>
+<pre>{{ myForm.controls['password'].errors | json }}</pre>
+
+<h5>Confirmar-errors</h5>
+<pre>{{ myForm.controls['password2'].errors | json }}</pre>
+
+
 <h5>Nombre</h5>
 <pre>{{ myForm.value.name| json }}</pre>
 
