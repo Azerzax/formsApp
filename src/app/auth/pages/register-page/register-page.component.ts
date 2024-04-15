@@ -17,13 +17,17 @@ export class RegisterPageComponent {
   ){
   }
 
-  public myForm = this.fb.group({
+  public myForm = this.fb.group({ //aqui sale deprecated por el isFieldOneEqualFieldTwo
     name:['', [Validators.required, Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)]],
     //email:['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)]],
     email:['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)], [this.emailValidatorService]],
     username:['', [Validators.required, this.validatorsService.cantBeNigga]],
     password:['', [Validators.required, Validators.minLength(8)]],
     password2:['', [Validators.required]]
+  },{
+    validators:[
+      this.emailValidatorService.isFieldOneEqualFieldTwo('password', 'password2')
+    ]
   })
 
   isValidField(field:string){
